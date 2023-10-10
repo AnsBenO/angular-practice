@@ -1,0 +1,28 @@
+.container {}
+
+.btn-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.text-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.left {
+    grid-column: 1;
+    gap: 20px;
+}
+
+.right {
+    grid-column: 2;
+}
+
+.right,
+.left {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}

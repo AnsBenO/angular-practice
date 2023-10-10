@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="btn-container">
+        <div class="left">
+            <button class="btn" (click)="getObservableData()">
+                Get Observable data
+            </button>
+        </div>
+        <div class="right">
+            <button class="btn" (click)="getSubjectData()">
+                Get subject Data
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="text-container">
+    <div class="left">
+        <div>{{observableData}} | {{observableData2}}</div>
+    </div>
+    <div class="right">
+        <div>{{subjectData}} | {{subjectData2}}</div>
+    </div>
+</div>

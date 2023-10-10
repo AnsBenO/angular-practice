@@ -1,0 +1,26 @@
+<div class="couter-container">
+    <h3 class="dispaly-counter">{{counter}}</h3>
+
+    <div class="controls">
+        <app-button
+            [text]="'Increment'"
+            (buttonClick)="increment()"
+        ></app-button>
+        <app-button
+            [text]="'Decrement'"
+            (buttonClick)="decrement()"
+        ></app-button>
+        <app-button [text]="'Reset'" (buttonClick)="reset()"></app-button>
+    </div>
+    <div class="set-step">
+        <h4 class="sub-title">Set new step</h4>
+        <div class="controls">
+            <app-button [text]="'1'" (buttonClick)="setStep(1)"></app-button>
+            <app-button [text]="'2'" (buttonClick)="setStep(2)"></app-button>
+            <app-button [text]="'3'" (buttonClick)="setStep(3)"></app-button>
+            <app-button [text]="'4'" (buttonClick)="setStep(4)"></app-button>
+            <app-button [text]="'5'" (buttonClick)="setStep(5)"></app-button>
+            <app-button [text]="'6'" (buttonClick)="setStep(6)"></app-button>
+        </div>
+    </div>
+</div>

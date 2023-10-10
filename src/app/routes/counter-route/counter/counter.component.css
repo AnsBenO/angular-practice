@@ -1,0 +1,19 @@
+.couter-container {
+    margin: 10px auto;
+    padding: 15px;
+}
+
+.dispaly-counter {
+    font-size: 50px;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sub-title {
+    text-align: center;
+}
