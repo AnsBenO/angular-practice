@@ -1,0 +1,19 @@
+.users-table {
+    table-layout: fixed;
+    width: 100%;
+    max-width: 100%;
+    min-width: 400px;
+    border-collapse: collapse;
+    margin: 20px auto;
+
+}
+
+.users-table td,
+.users-table th {
+    border: 1px solid #dddddd;
+    padding: 15px;
+}
+
+.users-table th {
+    text-transform: capitalize;
+}

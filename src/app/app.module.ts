@@ -7,6 +7,7 @@ import { HomeComponent } from "./routes/home/home.component";
 import { CounterRouteModule } from "./routes/counter-route/counter-route.module";
 import { ObservableVsSubjectModule } from "./routes/observable-vs-subject/observable-vs-subject.module";
 import { DiceGameModule } from "./routes/dice-game/dice-game.module";
+import { TableModule } from "./routes/table/table.module";
 
 @NgModule({
     declarations: [AppComponent, HomeComponent],
@@ -16,6 +17,7 @@ import { DiceGameModule } from "./routes/dice-game/dice-game.module";
         CounterRouteModule,
         ObservableVsSubjectModule,
         DiceGameModule,
+        TableModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -1,0 +1,17 @@
+<table class="users-table">
+    <thead>
+        <tr>
+            <th *ngFor="let col of usersColumns">
+                {{col}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td *ngFor="let column of usersColumns">
+                {{user[column]}}
+            </td>
+
+        </tr>
+    </tbody>
+</table>
