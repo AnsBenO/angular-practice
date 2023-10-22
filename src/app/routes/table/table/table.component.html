@@ -1,8 +1,10 @@
 <table class="users-table">
     <thead>
         <tr>
-            <th *ngFor="let col of usersColumns">
+            <th *ngFor="let col of usersColumns" (click)="switchSorting(col)">
                 {{col}}
+                <span *ngIf="isDescSorting(col)">▼</span>
+                <span *ngIf="isAscSorting(col)">▲</span>
             </th>
         </tr>
     </thead>

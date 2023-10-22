@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { UsersService } from "../services/users.service";
 import { UserInterface } from "../types/user.interface";
-import { Observable, Subject, takeUntil } from "rxjs";
+import { Subject, takeUntil } from "rxjs";
+import { SortingInterface } from "../types/sorting.interface";
 
 @Component({
     selector: "app-table",
@@ -12,10 +13,19 @@ export class TableComponent implements OnInit, OnDestroy {
     users!: UserInterface[];
     usersColumns!: Array<keyof UserInterface>;
     destroy$ = new Subject<void>();
+    sorting: SortingInterface = {
+        column: "id",
+        order: "desc",
+    };
+
     constructor(private userService: UsersService) {}
     ngOnInit(): void {
+        this.fetchData();
+    }
+
+    fetchData(): void {
         this.userService
-            .getUsers()
+            .getUsers(this.sorting)
             .pipe(takeUntil(this.destroy$))
             .subscribe(users => {
                 this.users = users;
@@ -23,6 +33,17 @@ export class TableComponent implements OnInit, OnDestroy {
                     keyof UserInterface
                 >;
             });
+    }
+    switchSorting(col: string) {
+        this.sorting.column = col;
+        this.sorting.order = this.isDescSorting(col) ? "asc" : "desc";
+        this.fetchData();
+    }
+    isAscSorting(col: string): boolean {
+        return this.sorting.column === col && this.sorting.order === "asc";
+    }
+    isDescSorting(col: string): boolean {
+        return this.sorting.column === col && this.sorting.order === "desc";
     }
     ngOnDestroy(): void {
         this.destroy$.next();

@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { BehaviorSubject, Observable, of } from "rxjs";
 import { UserInterface } from "../types/user.interface";
+import { SortingInterface } from "../types/sorting.interface";
 
 @Injectable({
     providedIn: "root",
@@ -36,7 +37,19 @@ export class UsersService {
         },
     ];
 
-    getUsers(): Observable<UserInterface[]> {
-        return of(this.users);
+    getUsers(sorting: SortingInterface): Observable<UserInterface[]> {
+        const sortedUsers = [...this.users];
+        sortedUsers.sort((u1, u2) => {
+            const columnA = u1[sorting.column as keyof UserInterface];
+            const columnB = u2[sorting.column as keyof UserInterface];
+
+            if (sorting.order === "asc") {
+                return columnA > columnB ? -1 : columnA < columnB ? 1 : 0;
+            } else {
+                return columnA < columnB ? -1 : columnA > columnB ? 1 : 0;
+            }
+        });
+
+        return of(sortedUsers);
     }
 }
